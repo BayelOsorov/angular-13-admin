@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
 import { HttpInterceptorService } from '../../../services/http/http.service';
 import { PartnerService } from '../../../services/partner/partner.service';
+import { IPartner } from '../../../interfaces/interfaces';
 
 @Component({
     selector: 'ngx-header',
@@ -22,7 +23,7 @@ import { PartnerService } from '../../../services/partner/partner.service';
 export class HeaderComponent implements OnInit, OnDestroy {
     userPictureOnly = false;
     user: any;
-
+    partner: IPartner;
     themes = [
         {
             value: 'default',
@@ -94,7 +95,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
             .subscribe(() => this.authService.logout());
         this.partnerService.getPartnerData().subscribe({
             next: (data) => {
-                console.log(data);
+                this.partner = data;
             },
         });
     }
