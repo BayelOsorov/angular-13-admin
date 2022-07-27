@@ -22,6 +22,7 @@ import {
 } from '@nebular/theme';
 import { AuthConfigModule } from './auth/auth-config.module';
 import { HttpInterceptorService } from './services/http/http.service';
+import { BaseUrlInterceptor } from './services/http/base-url.interceptor';
 
 @NgModule({
     declarations: [AppComponent],
@@ -47,6 +48,11 @@ import { HttpInterceptorService } from './services/http/http.service';
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpInterceptorService,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: BaseUrlInterceptor,
             multi: true,
         },
     ],

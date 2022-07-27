@@ -71,3 +71,32 @@ export interface IPartner {
         }
     ];
 }
+export interface IBranches {
+    id: 0;
+    createdAt: '2022-07-27T04:10:05.864Z';
+    name: 'string';
+    workingHourStart: '2022-07-27T04:10:05.864Z';
+    workingHourEnd: '2022-07-27T04:10:05.864Z';
+    address: 'string';
+    location: {
+        type: 'string';
+        coordinates: [0];
+    };
+    mall: {
+        id: 0;
+        createdAt: '2022-07-27T04:10:05.864Z';
+        name: 'string';
+        logoImageUrl: 'string';
+        address: 'string';
+        workingHourStart: '2022-07-27T04:10:05.864Z';
+        workingHourEnd: '2022-07-27T04:10:05.864Z';
+        partnersCount: 0;
+        roundTheClockWork: true;
+        location: {
+            type: 'string';
+            coordinates: [0];
+        };
+        locality: 'string';
+    };
+    locality: 'string';
+}

@@ -1,0 +1,98 @@
+<nb-card>
+    <nb-card-header> Информация </nb-card-header>
+
+    <nb-card-body *ngIf="partner">
+        <div class="d-flex">
+            <div class="col-6 col-md-4">
+                <nb-card class="list-card" size="small">
+                    <div class="grid-view">
+                        <img
+                            class="center-img"
+                            src="{{ partner.logoImageUrl }}"
+                            alt="logo"
+                        />
+                    </div>
+                </nb-card>
+            </div>
+            <div class="col-md-8">
+                <nb-card class="list-card">
+                    <nb-card-body class="lists row">
+                        <nb-list>
+                            <nb-list-item>Название</nb-list-item>
+                            <nb-list-item>Описание</nb-list-item>
+                            <nb-list-item>Категория</nb-list-item>
+                            <nb-list-item>Комиссия (%) </nb-list-item>
+                            <nb-list-item>Создано</nb-list-item>
+                            <nb-list-item>Бик</nb-list-item>
+                            <nb-list-item>ИНН</nb-list-item>
+                        </nb-list>
+                        <nb-list>
+                            <nb-list-item>{{ partner.name }}</nb-list-item>
+                            <nb-list-item>{{
+                                partner.description
+                            }}</nb-list-item>
+                            <nb-list-item>{{
+                                partner.categoryName
+                                    ? partner.categoryName
+                                    : partner.categoryId
+                            }}</nb-list-item>
+                            <nb-list-item
+                                >{{ partner.commission }}(%)
+                            </nb-list-item>
+                            <nb-list-item>{{
+                                partner.createdAt | date: 'dd.MM.yyyy'
+                            }}</nb-list-item>
+                            <nb-list-item>{{ partner.bic }}</nb-list-item>
+                            <nb-list-item>{{ partner.tin }}</nb-list-item>
+                        </nb-list>
+                    </nb-card-body>
+                    <div>
+                        <nb-card-header>Банковские реквизиты</nb-card-header>
+                        <nb-card-body class="lists row">
+                            <nb-list>
+                                <nb-list-item>Назвавние банка</nb-list-item>
+                                <nb-list-item>Банковский счет</nb-list-item>
+                            </nb-list>
+                            <nb-list>
+                                <nb-list-item>{{
+                                    partner.bankName
+                                }}</nb-list-item>
+                                <nb-list-item>{{
+                                    partner.bankAccount
+                                }}</nb-list-item>
+                            </nb-list>
+                        </nb-card-body>
+                    </div>
+                    <div>
+                        <nb-card-header>Контакты</nb-card-header>
+                        <nb-card-body
+                            class="lists row"
+                            *ngFor="let contact of partner?.contacts"
+                        >
+                            <nb-list>
+                                <nb-list-item>{{ contact.type }}</nb-list-item>
+                            </nb-list>
+                            <nb-list>
+                                <nb-list-item>{{ contact.value }}</nb-list-item>
+                            </nb-list>
+                        </nb-card-body>
+                    </div>
+                    <div>
+                        <nb-card-header>Теги</nb-card-header>
+                        <nb-card-body
+                            class="lists row"
+                            *ngFor="let tag of partner?.tags; let i = index"
+                        >
+                            <nb-list>
+                                <nb-list-item>{{ i + 1 }}</nb-list-item>
+                            </nb-list>
+                            <nb-list>
+                                <nb-list-item>{{ tag.name }}</nb-list-item>
+                            </nb-list>
+                        </nb-card-body>
+                    </div>
+                </nb-card>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

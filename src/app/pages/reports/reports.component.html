@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header> Отчеты </nb-card-header>
+
+    <nb-card-body>
+        <div class="col-md-12 col-lg-4 col-xxxl-4">
+            <input
+                nbInput
+                placeholder="Начало - Конец"
+                [nbDatepicker]="rangepicker"
+            />
+            <nb-rangepicker #rangepicker></nb-rangepicker>
+        </div>
+    </nb-card-body>
+</nb-card>

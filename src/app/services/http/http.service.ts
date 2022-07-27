@@ -33,7 +33,6 @@ export class HttpInterceptorService implements HttpInterceptor {
                 },
             });
         }
-        console.log(request);
         return next.handle(request).pipe(
             catchError((err) => {
                 if (err instanceof HttpErrorResponse) {
