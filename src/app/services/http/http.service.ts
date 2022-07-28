@@ -29,7 +29,6 @@ export class HttpInterceptorService implements HttpInterceptor {
             request = request.clone({
                 setHeaders: {
                     authorization: `Bearer ${token}`,
-                    url: 'http://localhost:4000' + '/' + request.url,
                 },
             });
         }
@@ -38,8 +37,6 @@ export class HttpInterceptorService implements HttpInterceptor {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
                         token = this.authService.getAccessToken();
-
-                        // redirect user to the logout page
                     }
                 }
                 return throwError(err);

@@ -23,6 +23,7 @@ import {
 import { AuthConfigModule } from './auth/auth-config.module';
 import { HttpInterceptorService } from './services/http/http.service';
 import { BaseUrlInterceptor } from './services/http/base-url.interceptor';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -43,6 +44,7 @@ import { BaseUrlInterceptor } from './services/http/base-url.interceptor';
         CoreModule.forRoot(),
         ThemeModule.forRoot(),
         AuthConfigModule,
+        ComponentsModule,
     ],
     providers: [
         {

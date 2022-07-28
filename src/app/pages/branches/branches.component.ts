@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IBranches } from '../../interfaces/interfaces';
 import { PartnerService } from '../../services/partner/partner.service';
 
@@ -6,7 +7,8 @@ import { PartnerService } from '../../services/partner/partner.service';
     templateUrl: './branches.component.html',
     styleUrls: ['./branches.component.scss'],
 })
-export class BranchesComponent implements OnInit {
+export class BranchesComponent implements OnInit, OnDestroy {
+    subscription: Subscription;
     branches: IBranches;
     settings = {
         actions: false,
@@ -36,8 +38,11 @@ export class BranchesComponent implements OnInit {
         }
     }
     ngOnInit(): void {
-        this.partnerService.getPartnerBranches().subscribe({
+        this.subscription = this.partnerService.getPartnerBranches().subscribe({
             next: (data) => (this.branches = data),
         });
+    }
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 }

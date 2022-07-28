@@ -28,9 +28,12 @@
                         </nb-list>
                         <nb-list>
                             <nb-list-item>{{ partner.name }}</nb-list-item>
-                            <nb-list-item>{{
-                                partner.description
-                            }}</nb-list-item>
+                            <nb-list-item>
+                                <div title="{{ partner.description }}">
+                                    {{ partner.description.slice(0, 25) }}
+                                </div>
+                                ...</nb-list-item
+                            >
                             <nb-list-item>{{
                                 partner.categoryName
                                     ? partner.categoryName
@@ -46,6 +49,7 @@
                             <nb-list-item>{{ partner.tin }}</nb-list-item>
                         </nb-list>
                     </nb-card-body>
+
                     <div>
                         <nb-card-header>Банковские реквизиты</nb-card-header>
                         <nb-card-body class="lists row">
@@ -66,7 +70,7 @@
                     <div>
                         <nb-card-header>Контакты</nb-card-header>
                         <nb-card-body
-                            class="lists row"
+                            class="lists row pt-1 pb-1"
                             *ngFor="let contact of partner?.contacts"
                         >
                             <nb-list>
@@ -80,7 +84,7 @@
                     <div>
                         <nb-card-header>Теги</nb-card-header>
                         <nb-card-body
-                            class="lists row"
+                            class="lists row pt-1 pb-1"
                             *ngFor="let tag of partner?.tags; let i = index"
                         >
                             <nb-list>

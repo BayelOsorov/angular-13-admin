@@ -23,6 +23,8 @@ export class AuthService {
 
     logout() {
         this.oidcSecurityService.logoff();
+        sessionStorage.clear();
+        localStorage.clear();
     }
     getAccessToken() {
         const token = JSON.parse(

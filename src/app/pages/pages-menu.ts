@@ -19,12 +19,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
     },
     {
         title: 'Информация',
-        icon: 'home-outline',
+        icon: 'person-outline',
         link: '/pages/about',
     },
     {
         title: 'Отчеты',
-        icon: 'home-outline',
+        icon: 'file-text-outline',
         link: '/pages/reports',
+    },
+    {
+        title: 'Кошелек',
+        icon: 'credit-card-outline',
+        link: '/pages/wallet',
     },
 ];

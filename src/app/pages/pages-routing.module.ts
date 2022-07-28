@@ -7,6 +7,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { BranchesComponent } from './branches/branches.component';
 import { AboutComponent } from './about/about.component';
 import { ReportsComponent } from './reports/reports.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 const routes: Routes = [
     {
@@ -32,6 +33,10 @@ const routes: Routes = [
             {
                 path: 'reports',
                 component: ReportsComponent,
+            },
+            {
+                path: 'wallet',
+                component: WalletComponent,
             },
             {
                 path: '',

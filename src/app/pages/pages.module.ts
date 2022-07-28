@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
+    NbButtonModule,
     NbCardModule,
     NbDatepickerModule,
     NbInputModule,
@@ -16,6 +17,7 @@ import { BranchesComponent } from './branches/branches.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AboutComponent } from './about/about.component';
 import { ReportsComponent } from './reports/reports.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
     imports: [
@@ -29,6 +31,7 @@ import { ReportsComponent } from './reports/reports.component';
         NbListModule,
         NbDatepickerModule,
         NbInputModule,
+        NbButtonModule,
     ],
 
     declarations: [
@@ -36,6 +39,7 @@ import { ReportsComponent } from './reports/reports.component';
         BranchesComponent,
         AboutComponent,
         ReportsComponent,
+        WalletComponent,
     ],
 })
 export class PagesModule {}
