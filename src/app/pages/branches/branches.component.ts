@@ -11,6 +11,7 @@ export class BranchesComponent implements OnInit, OnDestroy {
     subscription: Subscription;
     branches: IBranches;
     settings = {
+        hideSubHeader: true,
         actions: false,
         columns: {
             id: {
@@ -30,13 +31,6 @@ export class BranchesComponent implements OnInit, OnDestroy {
 
     constructor(private partnerService: PartnerService) {}
 
-    onDeleteConfirm(event): void {
-        if (window.confirm('Are you sure you want to delete?')) {
-            event.confirm.resolve();
-        } else {
-            event.confirm.reject();
-        }
-    }
     ngOnInit(): void {
         this.subscription = this.partnerService.getPartnerBranches().subscribe({
             next: (data) => (this.branches = data),

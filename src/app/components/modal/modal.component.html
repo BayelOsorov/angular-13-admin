@@ -13,7 +13,7 @@
                             <div class="input-group">
                                 <input
                                     type="text"
-                                    placeholder="Enter your name"
+                                    placeholder="ИНН получателя"
                                     class="form-control"
                                     formControlName="firstCtrl"
                                     [ngClass]="{
@@ -24,26 +24,24 @@
                                     }"
                                 />
                             </div>
-                            <button nbButton nbStepperNext>next</button>
+                            <button type="submit" nbButton>Проверить</button>
                         </form>
                     </nb-step>
-                    <nb-step [stepControl]="secondForm" label="Second step">
+                    <nb-step [stepControl]="secondForm" label="Второй шаг">
                         <form
                             [formGroup]="secondForm"
                             (ngSubmit)="onSecondSubmit()"
                             class="step-container"
                         >
                             <p class="lorem">
-                                Pellentesque we gonna chung tortor. Sizzle
-                                pizzle. Fizzle izzle dolor dapibus fo shizzle
-                                mah nizzle fo rizzle, mah home g-dizzle tempus
-                                tempor. Maurizzle cool nibh owned turpizzle. My
-                                shizz fo shizzle tortor.
+                                Партнер: {{ partnerData?.name }} <br />
+                                Пин: {{ partnerData?.tin }}
                             </p>
+                            <p class="lorem">Введите сумму</p>
                             <div class="input-group">
                                 <input
                                     type="text"
-                                    placeholder="Enter favorite movie"
+                                    placeholder="Сумма"
                                     class="form-control"
                                     formControlName="secondCtrl"
                                     [ngClass]="{
@@ -54,8 +52,8 @@
                                     }"
                                 />
                             </div>
-                            <button nbButton nbStepperPrevious>prev</button>
-                            <button nbButton nbStepperNext>next</button>
+                            <button nbButton nbStepperPrevious>Назад</button>
+                            <button type="submit" nbButton>Подтвердить</button>
                         </form>
                     </nb-step>
                     <nb-step [stepControl]="thirdForm" label="Third step">

@@ -12,5 +12,5 @@ export const environment = {
     production: false,
     baseUrl: 'https://stage.c2u.io:2001',
     baseUrlOidc: 'https://stage.c2u.io:7001',
-    balanceHistoryUrl: 'https://stage.c2u.io:15001',
+    transactionsUrl: 'https://stage.c2u.io:15001',
 };

@@ -15,4 +15,9 @@ export class PartnerService {
     getPartnerBranches(): Observable<IBranches> {
         return this.http.get<IBranches>('Partners/api/v1/Partners/Branches');
     }
+    getPartnerByPin(pin): Observable<IPartner> {
+        console.log(pin);
+
+        return this.http.get<IPartner>('Partners/api/v1/Partners/Get/' + pin);
+    }
 }

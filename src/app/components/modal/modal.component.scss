@@ -1,6 +1,14 @@
 .my-stepper {
     .col-xxxl-6 {
-        width: 100%;
+        min-width: 150%;
         max-width: 100%;
+    }
+}
+:host ::ng-deep nb-stepper .step-content {
+    text-align: center;
+
+    button {
+        cursor: pointer;
+        margin: 0.5rem;
     }
 }

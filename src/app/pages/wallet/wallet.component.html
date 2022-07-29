@@ -6,8 +6,26 @@
         astronomical object, including galaxies beyond the Milky Way.
     </nb-card-body>
 </nb-card>
-<!-- <nb-card> -->
-<button nbButton (click)="openWithoutBackdropClick()">
-    Without backdrop click close
-</button>
-<!-- </nb-card> -->
+<nb-card>
+    <nb-card-body class="center">
+        <button status="primary" nbButton (click)="openWithBackdropClick()">
+            Отправить
+        </button>
+
+        <button status="primary" nbButton (click)="openWithBackdropClick()">
+            Вывод
+        </button>
+    </nb-card-body>
+</nb-card>
+<nb-card>
+    <nb-card-header> Транзакции </nb-card-header>
+
+    <nb-card-body>
+        <ng2-smart-table
+            [settings]="settings"
+            [source]="transactions"
+            (userRowSelect)="onUserRowSelect($event)"
+        >
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>
