@@ -1,0 +1,47 @@
+<nb-card>
+    <nb-card-header>Вывод средств</nb-card-header>
+    <nb-card-body>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="label"
+                    >Введите номер кошелька</label
+                >
+                <input
+                    type="number"
+                    nbInput
+                    fullWidth
+                    id="exampleInputEmail1"
+                    placeholder="Номер кошелька"
+                />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="label"
+                    >Введите сумму
+                </label>
+                <input
+                    type="number"
+                    nbInput
+                    fullWidth
+                    id="exampleInputPassword1"
+                    placeholder="Сумма"
+                />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="label"
+                    >Выберите тип кошелька</label
+                >
+                <br />
+                <nb-select selected="1">
+                    <nb-option value="1">Тип кошелька</nb-option>
+                    <nb-option value="2">Элсом (KICB)</nb-option>
+                </nb-select>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" nbButton status="info">Закрыть</button>
+                <button type="submit" nbButton status="success">
+                    Отправить
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

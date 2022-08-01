@@ -100,3 +100,4 @@ export interface IBranches {
     };
     locality: 'string';
 }
+// export interface ITransactions {}

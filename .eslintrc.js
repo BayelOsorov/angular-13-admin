@@ -54,6 +54,7 @@ module.exports = {
                 'comma-dangle': 'off',
                 '@typescript-eslint/comma-dangle': 'off',
                 '@typescript-eslint/naming-convention': 'off',
+                'max-len': 'off',
             },
         },
         {

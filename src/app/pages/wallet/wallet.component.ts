@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
+import { CashOutModalComponent } from '../../components/cash-out-modal/cash-out-modal.component';
+import { DetailTransactionModalComponent } from '../../components/detail-transaction-modal/detail-transaction-modal.component';
 import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
@@ -152,17 +154,23 @@ export class WalletComponent implements OnInit {
     };
     constructor(private dialogService: NbDialogService) {}
     onUserRowSelect(event): void {
+        this.openDetailModal();
         console.log(event);
     }
-    openWithBackdropClick() {
-        this.open(true);
+    openTransferModal() {
+        this.openModal(true, ModalComponent);
     }
-
+    openCashOutModal() {
+        this.openModal(true, CashOutModalComponent);
+    }
+    openDetailModal() {
+        this.openModal(true, DetailTransactionModalComponent);
+    }
     ngOnInit(): void {}
 
-    protected open(closeOnBackdropClick: boolean) {
-        this.dialogService.open(ModalComponent, {
-            context: 'this is some additional data passed to dialog',
+    protected openModal(closeOnBackdropClick: boolean, component) {
+        this.dialogService.open(component, {
+            context: { title: 'this is some additional data passed to dialog' },
         });
     }
 }

@@ -82,7 +82,7 @@ export class ModalComponent implements OnInit {
                     console.log(err.error.errors);
                     this.showToast(
                         'danger',
-                        'Партнер не найден',
+                        err.error.errors,
                         err.error.errors
                     );
                 },
