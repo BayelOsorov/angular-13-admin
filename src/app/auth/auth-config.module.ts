@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
-import { AuthModule } from 'angular-auth-oidc-client';
+import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
+import { environment } from '../../environments/environment';
 
 @NgModule({
     imports: [
         AuthModule.forRoot({
             config: {
-                authority: 'https://stage.c2u.io:7001',
+                authority: environment.baseUrlOidc,
                 redirectUrl: window.location.origin + '/cb',
                 postLogoutRedirectUri: window.location.origin + '/logout',
                 clientId: 'partner_admin_app',
                 scope: 'openid profile offline_access', // 'openid profile ' + your scopes
                 responseType: 'code',
                 silentRenew: true,
-                silentRenewUrl: window.location.origin + '/silent-renew.html',
-                renewTimeBeforeTokenExpiresInSeconds: 10,
+                useRefreshToken: true,
+                // logLevel: LogLevel.Debug,
             },
         }),
     ],

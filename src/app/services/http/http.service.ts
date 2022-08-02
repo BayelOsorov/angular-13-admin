@@ -1,5 +1,4 @@
 import {
-    HttpClient,
     HttpErrorResponse,
     HttpEvent,
     HttpHandler,
@@ -9,14 +8,13 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
 import { AuthService } from '../auth.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class HttpInterceptorService implements HttpInterceptor {
-    constructor(private authService: AuthService, private http: HttpClient) {}
+    constructor(private authService: AuthService) {}
     intercept(
         request: HttpRequest<any>,
         next: HttpHandler
@@ -37,6 +35,7 @@ export class HttpInterceptorService implements HttpInterceptor {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
                         token = this.authService.getAccessToken();
+                        console.log('refresh ' + token);
                     }
                 }
                 return throwError(err);

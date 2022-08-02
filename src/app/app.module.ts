@@ -5,7 +5,7 @@
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -24,6 +24,7 @@ import { AuthConfigModule } from './auth/auth-config.module';
 import { HttpInterceptorService } from './services/http/http.service';
 import { BaseUrlInterceptor } from './services/http/base-url.interceptor';
 import { ComponentsModule } from './components/components.module';
+import { OidcConfigService } from 'angular-auth-oidc-client';
 
 @NgModule({
     declarations: [AppComponent],

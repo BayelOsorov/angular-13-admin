@@ -9,13 +9,13 @@ export class AuthService {
     constructor(private oidcSecurityService: OidcSecurityService) {}
 
     isLoggedIn() {
-        this.oidcSecurityService
-            .checkAuth()
-            .subscribe(
-                ({ isAuthenticated, userData, accessToken, idToken }) =>
-                    (this.logged = isAuthenticated)
-            );
-        return this.logged;
+        // this.oidcSecurityService
+        //     .checkAuth()
+        //     .subscribe(
+        //         ({ isAuthenticated, userData, accessToken, idToken }) =>
+        //             (this.logged = isAuthenticated)
+        //     );
+        // return this.logged;
     }
     login() {
         this.oidcSecurityService.authorize();
@@ -27,9 +27,6 @@ export class AuthService {
         localStorage.clear();
     }
     getAccessToken() {
-        const token = JSON.parse(
-            sessionStorage.getItem('0-partner_admin_app')
-        ).authzData;
-        return token;
+        return this.oidcSecurityService.getAccessToken();
     }
 }
