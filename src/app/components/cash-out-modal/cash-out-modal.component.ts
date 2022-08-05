@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'ngx-cash-out-modal',
-  templateUrl: './cash-out-modal.component.html',
-  styleUrls: ['./cash-out-modal.component.scss']
+    selector: 'ngx-cash-out-modal',
+    templateUrl: './cash-out-modal.component.html',
+    styleUrls: ['./cash-out-modal.component.scss'],
 })
 export class CashOutModalComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
+    closeModal() {}
 }

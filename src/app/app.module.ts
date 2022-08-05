@@ -24,7 +24,6 @@ import { AuthConfigModule } from './auth/auth-config.module';
 import { HttpInterceptorService } from './services/http/http.service';
 import { BaseUrlInterceptor } from './services/http/base-url.interceptor';
 import { ComponentsModule } from './components/components.module';
-import { OidcConfigService } from 'angular-auth-oidc-client';
 
 @NgModule({
     declarations: [AppComponent],

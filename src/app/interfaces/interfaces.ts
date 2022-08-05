@@ -101,3 +101,6 @@ export interface IBranches {
     locality: 'string';
 }
 // export interface ITransactions {}
+export interface IBalance {
+    balance: string;
+}

@@ -58,7 +58,9 @@ export class ModalComponent implements OnInit {
                 error: (err) => {
                     this.showToast(
                         'danger',
-                        'Партнер не найден',
+                        err.error.status === 404
+                            ? 'Партнер не найден'
+                            : err.error.title,
                         err.error.title
                     );
                 },

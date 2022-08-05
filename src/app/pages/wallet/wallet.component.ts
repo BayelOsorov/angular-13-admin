@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { CashOutModalComponent } from '../../components/cash-out-modal/cash-out-modal.component';
 import { DetailTransactionModalComponent } from '../../components/detail-transaction-modal/detail-transaction-modal.component';
 import { ModalComponent } from '../../components/modal/modal.component';
+import { TransactionsService } from '../../services/transactions/transactions.service';
 
 @Component({
     templateUrl: './wallet.component.html',
     styleUrls: ['./wallet.component.scss'],
 })
 export class WalletComponent implements OnInit {
+    @ViewChild('disabledEsc', { read: TemplateRef, static: true })
+    disabledEscTemplate: TemplateRef<HTMLElement>;
+    balance;
     transactions = [
         {
             id: 3,
@@ -152,7 +156,12 @@ export class WalletComponent implements OnInit {
             },
         },
     };
-    constructor(private dialogService: NbDialogService) {}
+    constructor(
+        private dialogService: NbDialogService,
+        private transactionsService: TransactionsService
+    ) {
+        this.balance = transactionsService.partnerBalance();
+    }
     onUserRowSelect(event): void {
         this.openDetailModal();
         console.log(event);
@@ -170,7 +179,7 @@ export class WalletComponent implements OnInit {
 
     protected openModal(closeOnBackdropClick: boolean, component) {
         this.dialogService.open(component, {
-            context: { title: 'this is some additional data passed to dialog' },
+            closeOnBackdropClick,
         });
     }
 }
